@@ -1,0 +1,48 @@
+  cloud:
+    consul:
+      host: localhost
+      post: 8500
+      discovery:
+        # hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+
+
+
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 8101
+spring:
+  profiles: dev
+  application:
+    name: ms-config-client
+  cloud:
+    consul:
+      host: localhost
+      post: 8500
+      discovery:
+        # hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+test:
+  name: 开发3
+
+---
+server:
+  port: 8102
+spring:
+  profiles: test
+  application:
+    name: ms-config-client
+  cloud:
+    consul:
+      host: localhost
+      post: 8500
+      discovery:
+        # hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+
+test:
+  name: 测试
